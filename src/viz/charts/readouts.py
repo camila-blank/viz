@@ -146,21 +146,27 @@ def _layout(chars: list[tuple[str, int]], max_w: float, size: float, family: str
             expanded += [(p, sp if k == 0 else False) for k, p in enumerate(parts)]
         else:
             expanded.append((w, sp))
+    prev = None  # the flag of the run before, on this line: padding goes only where the flag changes
+
+    def edge(a, b) -> float:
+        return max(pad.get(a, 0.0), pad.get(b, 0.0)) if a != b else 0.0
+
     for w, sp in expanded:
         if w[0][1] == -1:  # a line break
             lines.append([])
-            x = 0.0
+            x, prev = 0.0, None
             continue
-        ww = sum(_width(t, size, family, weights(f)) + 2 * pad.get(f, 0.0) for t, f in w)
+        ww = sum(_width(t, size, family, weights(f)) for t, f in w) + 2 * max(pad.get(f, 0.0) for _, f in w)
         lead = space if (sp and x > 0) else 0.0
         if x > 0 and x + lead + ww > limit:
             lines.append([])
-            x, lead = 0.0, 0.0
+            x, lead, prev = 0.0, 0.0, None
         x += lead
         for t, f in w:
-            x += pad.get(f, 0.0)
+            x += edge(prev, f) if prev is not None else pad.get(f, 0.0)
             lines[-1].append((x, t, f))
-            x += _width(t, size, family, weights(f)) + pad.get(f, 0.0)
+            x += _width(t, size, family, weights(f))
+            prev = f
     while len(lines) > 1 and not lines[-1]:
         lines.pop()
     cut = bool(max_lines) and len(lines) > max_lines
