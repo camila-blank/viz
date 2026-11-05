@@ -342,6 +342,11 @@ def _table(rows, **kw):
     return describe(rows, **kw)
 
 
+def _readouts(*a, **kw):
+    from .charts.readouts import describe
+    return describe(*a, **kw)
+
+
 def _mtmm(data, **kw):
     from .charts.mtmm import describe
     return describe(data, **kw)
@@ -355,7 +360,7 @@ DESCRIBERS = {"hbar": _bars("Horizontal bar chart"), "bars": _bars("Bar chart"),
               "box": _distribution("Box plot", None), "strip": _distribution("Strip plot", None, stat="mean"),
               "ecdf": _distribution("Cumulative distribution", "", default_unit=""),
               "violin": _distribution("Violin plot", None), "area": _area,
-              "likert": _likert, "table": _table, "mtmm": _mtmm}
+              "likert": _likert, "table": _table, "mtmm": _mtmm, "readouts": _readouts}
 
 
 def describe(kind: str, args: tuple, kw: dict) -> str | None:

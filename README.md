@@ -121,6 +121,12 @@ What the model said and did.
 Several charts in one figure, with one legend.
 
 <a href="examples/README.md#panels-with-one-legend"><img src="docs/gallery/cards/33_panels.png" width="49%" alt="Panels with one legend"></a>
+
+### Lens readouts
+
+What a lens reads from the model's activations at one position of a prompt.
+
+<a href="examples/README.md#lens-readouts"><img src="docs/gallery/cards/34_readouts.png" width="49%" alt="Lens readouts"></a>
 <!-- /gallery -->
 
 ## Learn more

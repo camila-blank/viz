@@ -118,6 +118,7 @@ templates are in [examples/](../examples/README.md).
 | `episodes([viz.Episode(...)])` | Transcript excerpts side by side: reasoning quote, tool call, outcome dot. |
 | `chat(turns, ...)` | A conversation turn by turn: `(role, text)` pairs for user, assistant, system, tool_call and tool_result; `highlight=` turns and `notes={i: "..."}`. |
 | `tokens(items, ...)` | Text with each token shaded by a value, such as a probe score: `[(token, value), ...]` or `{row label: [...]}` for several rows; the heatmap's `scale`, `center`, `low`, `high`; a color bar with `label`. |
+| `readouts(prompt, reads, ...)` | What a lens read at one position of a prompt, layer by layer, in the style of the oracle-lens panels of the J-lens paper: the prompt (text, or tokens with `{"role": "user"}` items for speakers) on a card with the read token (`at=`) outlined and long prompts cut around it (`before=`, `after=` characters), then one row per layer of `reads` (`{layer: [phrase, ...]}` or a string of `- ` bullets) and, with `compare=`, a second lens's tokens as chips. `highlight=` marks targets wherever they appear and dots the layers that name one; `lens=`, `lens_note=`, `compare_label=`, `compare_note=` head the columns; `max_lines`, `max_phrases`, `max_tokens` keep rows short. |
 | **Layout** | |
 | `panels([fig, fig, ...], cols=2)` | Small multiples with one shared legend. Each chart's title becomes its panel title. |
 

@@ -28,6 +28,7 @@ from .charts import scatter as _scatter
 from .charts import stacked as _stacked
 from .charts import strip as _strip
 from .charts import table as _table
+from .charts import readouts as _readouts
 from .charts import tiles as _tiles
 from .charts import violin as _violin
 from .charts.cards import Episode, Reply
@@ -78,6 +79,7 @@ episodes = _chart(_cards.episodes)
 code_card = _chart(_cards.code_card)
 chat = _chart(_cards.chat)
 tokens = _chart(_cards.tokens)
+readouts = _chart(_readouts.readouts)
 dotplot = _chart(_dotplot.dotplot)
 histogram = _chart(_histogram.histogram)
 box = _chart(_box.box)
@@ -91,7 +93,7 @@ mtmm = _chart(_mtmm.mtmm)
 
 CHARTS = {"hbar": hbar, "bars": bars, "heatmap": heatmap, "tiles": tiles, "waffle": waffle, "scatter": scatter,
           "dumbbell": dumbbell, "line": line, "stacked": stacked, "panels": panels, "quotes": quotes,
-          "episodes": episodes, "code_card": code_card, "chat": chat, "tokens": tokens, "dotplot": dotplot,
+          "episodes": episodes, "code_card": code_card, "chat": chat, "tokens": tokens, "readouts": readouts, "dotplot": dotplot,
           "histogram": histogram, "box": box, "strip": strip, "ecdf": ecdf, "violin": violin, "area": area,
           "likert": likert, "table": table, "mtmm": mtmm}
 
@@ -137,6 +139,7 @@ __all__ = [
           "mtmm",
           "panels",
           "quotes",
+          "readouts",
           "render_file",
           "roles",
           "scatter",

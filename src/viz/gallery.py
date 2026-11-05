@@ -38,6 +38,7 @@ SECTIONS = [
      ["histogram", "box", "strip"]),
     ("Transcripts", "What the model said and did.", ["quotes", "episodes", "chat"]),
     ("Multi-panel figures", "Several charts in one figure, with one legend.", ["panels"]),
+    ("Lens readouts", "What a lens reads from the model's activations at one position of a prompt.", ["readouts"]),
 ]
 ORDER = [name for _, _, names in SECTIONS for name in names]
 STEM = {name: f"{i:02d}_{name}" for i, name in enumerate(ORDER, 1)}
