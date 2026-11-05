@@ -942,6 +942,7 @@ A prompt with the position a lens read outlined, and what two lenses read there,
 ```python
 import viz
 
+# Readout templates carry no title: the caption (or the page around the figure) says what it shows.
 # The prompt as the tokenizer split it; the lens was read at "with" (index 19). Phrases and tokens are made up.
 prompt = ["Fact", ":", " the", " 1967", " Norwegian", " Computing", " Center", " creation", " that", " introduced",
           " the", " concepts", " of", " class", " and", " object", " was", " designed", " by", " Ole", "-J", "ohan",
@@ -959,7 +960,6 @@ jlens = {20: ["colleague", "together", ".hpp", "assistant", "partner"],
          52: ["Kristen", "Nygaard", "Simula", "colleague", "programmer"]}
 fig = viz.readouts(
     prompt, oracle, at=-1, compare=jlens, highlight=["Simula 67", "Simula", "Nygaard"],
-    lens="Oracle lens", lens_note="K=2", compare_label="J-lens", compare_note="top 5",
-    title="The oracle lens names the unspoken bridge, Simula 67, from layer 20")
+    lens="Oracle lens", lens_note="K=2", compare_label="J-lens", compare_note="top 5")
 fig.save("34_readouts.png")
 ```

@@ -47,7 +47,7 @@ def reset() -> None:
 
 def _title(title: str | None, kind: str, panel: bool = False) -> list[str]:
     if not title:
-        return [] if panel or kind in ("code_card",) else ["No title: state the finding in one plain sentence."]
+        return [] if panel or kind in ("code_card", "readouts", "injection_readouts") else ["No title: state the finding in one plain sentence."]
     out = []
     t = title.strip()
     words = len(t.split())

@@ -321,7 +321,8 @@ def readouts(prompt, reads, *, at=None, layers=None, compare=None, highlight=Non
     to show, in order (all of reads by default). highlight: strings to mark wherever they appear, such as the
     target. before / after: characters of prompt kept around the read token (None keeps all); the cut is marked
     with [...]. max_lines: lines per phrase before it is cut with an ellipsis (None for no limit). max_phrases,
-    max_tokens: how many phrases and comparison tokens a row shows.
+    max_tokens: how many phrases and comparison tokens a row shows. Readout figures are templates and take no
+    title: say what one shows in the caption or the page around it (title= is kept for older scripts).
     """
     terms = [highlight] if isinstance(highlight, str) else list(highlight or [])
     keys = list(layers) if layers is not None else list(reads)
