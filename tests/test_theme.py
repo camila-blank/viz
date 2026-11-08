@@ -46,7 +46,7 @@ def test_every_color_lives_in_the_theme():
     """A hex color written in a chart would stay the same in the dark theme."""
     src = Path(viz.__file__).parent
     for p in src.rglob("*.py"):
-        if p.name not in ("theme.py", "access.py", "render.py"):
+        if p.name not in ("theme.py", "access.py", "render.py", "jlens.py"):  # jlens: the J-lens paper's fixed light palette
             assert not re.findall(r"[\"']#[0-9A-Fa-f]{6}[\"']", p.read_text()), p.name
 
 

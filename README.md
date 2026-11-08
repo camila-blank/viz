@@ -129,6 +129,33 @@ What a lens reads from the model's activations at one position of a prompt.
 <a href="examples/README.md#lens-readouts"><img src="docs/gallery/cards/34_readouts.png" width="49%" alt="Lens readouts"></a>
 <!-- /gallery -->
 
+## J-lens paper style readouts
+
+`viz.jlens` draws a prompt and its oracle-lens readouts the way the J-lens paper draws its figures
+([Figure 7](https://transformer-circuits.pub/2026/workspace/index.html), with readout text in the style of Figure 64).
+It reuses the paper's CSS, so the type scale, greys, yellow highlights and outlined read token all match.
+It renders HTML through Chromium rather than building a `viz.Figure`, and carries no title, caption or key.
+
+```bash
+python -m viz.jlens examples/jlens/injection.json out/injection   # -> out/injection.{html,png,pdf}
+```
+
+```python
+from viz import jlens
+jlens.render(spec, "out/injection")   # or jlens.page(spec) for the HTML string
+```
+
+The spec lists panels. Each panel has prompt turns (`injected` turns are highlighted yellow and the `read`
+token is outlined) and readouts (a header, an optional "After *injecting* …" condition line, the readout text,
+and the `terms` to set in bold). The full format is in the docstring of `src/viz/jlens.py`.
+[`examples/jlens/injection.json`](examples/jlens/injection.json) is a worked example with invented readouts:
+
+![J-lens style injection readouts](examples/jlens/injection.png)
+
+The paper's fonts, Anthropic Sans and Anthropic Mono, are not public. The page embeds similar open fonts
+instead (DM Sans and DM Mono). A browser that has the real fonts installed still uses them. To embed the
+real files, pass `font_dir=` or set `VIZ_ANTHROPIC_FONTS`.
+
 ## Learn more
 
 - [Guide](docs/guide.md): how to title, color and size a figure, and what the checks flag.

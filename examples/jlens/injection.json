@@ -1,0 +1,29 @@
+{
+ "panels": [
+  {
+   "heading": "Asked what it is thinking about",
+   "cols": 2,
+   "turns": [
+    {"role": "User", "body": "Some trials place an idea in your mind before you answer, and some do not. Tell me whether anything stands out in your thoughts right now, and if so, what it is.", "injected": true, "read": null},
+    {"role": "Assistant", "body": "Something does stand out. It is about \"", "injected": false, "read": "\""}
+   ],
+   "readouts": [
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Lighthouse”", "cond_hl": ["injecting"], "text": "A lighthouse on a rocky coast, its beam sweeping over the water at night.", "terms": ["lighthouse"]},
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Violin”", "cond_hl": ["injecting"], "text": "The sound of a violin warming up before a concert.", "terms": ["violin"]},
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Glacier”", "cond_hl": ["injecting"], "text": "I am thinking of a glacier moving slowly down a valley.", "terms": ["glacier"]},
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Origami”", "cond_hl": ["injecting"], "text": "Folding a paper crane, one crease at a time: origami.", "terms": ["origami", "paper crane"]}
+   ]
+  },
+  {
+   "heading": "Not asked: an ordinary task",
+   "cols": 1,
+   "turns": [
+    {"role": "User", "body": "Write a short reminder that the team lunch has moved to Friday.", "injected": true, "read": "."}
+   ],
+   "readouts": [
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Lighthouse”", "cond_hl": ["injecting"], "text": "a reminder that lunch is now Friday, at the cafe by the lighthouse.", "terms": ["lighthouse"]},
+    {"label": "Oracle lens", "at": false, "cond": "After injecting “Violin”", "cond_hl": ["injecting"], "text": "Team lunch moves to Friday; bring your violin if you want to play afterwards.", "terms": ["violin"]}
+   ]
+  }
+ ]
+}

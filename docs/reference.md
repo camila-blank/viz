@@ -166,3 +166,10 @@ is drawn. One headless Chromium, started on first use and reused, turns the SVG 
 figure. A PDF takes about half a second more: Chromium writes variable fonts and outlined text as Type 3 fonts, so
 for a PDF viz gives it a static TrueType copy of each font at every weight and size the figure uses, and draws the
 white halos behind labels as paths. Run the tests with `uv run pytest`.
+
+## J-lens paper style (`viz.jlens`)
+
+| Function | What it does |
+|---|---|
+| `jlens.page(spec, font_dir=None)` | The figure as a standalone HTML page with its fonts embedded, in the J-lens paper's Figure 7 / Figure 64 style. `spec = {"panels": [{"heading", "width", "cols", "turns": [{"role", "body", "injected", "read", "read_at", "read_hl"}], "readouts": [{"label", "at", "color", "cond", "cond_hl", "text", "terms", "quote"}]}]}`. |
+| `jlens.render(spec, stem, font_dir=None)` | Writes `stem.html`, `stem.png` (at 2×) and `stem.pdf` through Chromium. The CLI does the same: `python -m viz.jlens spec.json STEM`. |
